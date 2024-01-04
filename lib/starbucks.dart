@@ -515,10 +515,66 @@ class StarbucksSecondPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Container(
                   child: Image.network(cardImgUrl),
+                  margin: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(2),
+                    // 그림자
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        // 광원의 위치를 중심(0, 0)보다 위쪽(0, 5)
+                        // offset: Offset(0, 5),
+                        spreadRadius: 1,
+                        blurRadius: 100,
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
-          )
+          ),
+
+          // Coupon & e-Gift Item
+          Container(
+            height: 72,
+            color: Colors.white,
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => print("Coupon 선택 됨"),
+                    child: Text(
+                      "Coupon",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 12,
+                  width: 1,
+                  color: Colors.grey,
+                ),
+                Expanded(
+                  child: TextButton(
+                    onPressed: () {
+                      print("e-Gift Item 선택 됨");
+                    },
+                    child: Text(
+                      "e-Gift Item",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
